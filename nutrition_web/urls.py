@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from feeds.views import home_view
+from feeds.views import home_view, feed_detail_view, feed_list_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home_view),
-    path('feeds/<int:feed_id>', home_view)
+    path('feeds/<int:feed_id>', feed_detail_view),
+    path('feeds',feed_list_view)
 ]

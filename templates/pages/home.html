@@ -1,5 +1,59 @@
 {% extends 'base.html' %}
 
 {% block content%}
-Welcome to Nutrition Feed
+<div class='row text-center'>
+    <div class='col'>
+        <h1>Welcome to Nutrition Feed</h1>
+    </div>
+</div>
+
+<div class="row" id="feeds">
+    Loading...
+</div>
+
+<script>
+const feedsElement = document.getElementById("feeds")
+
+const xhr = new XMLHttpRequest()
+const method = 'GET'
+const url = "/feeds"
+const responseType = "json"
+
+function handleDidLike ( feed_id, currentCount) {
+    console.log(feed_id, currentCount)
+    currentCount++
+    
+}
+
+function LikeBtn(feed) {
+    return "<button class='btn btn-primary btn-small' onclick=handleDidLike(" +
+    feed.id +"," + feed.likes+")>"+feed.likes+" Like</button>"
+}
+
+function formatFeedElment(feed) {
+    var formattedFeed = "<div class='col-12 col-md-4 mx-auto border rounded py-3 mb-4 feed' id='feed-" + feed.id 
+    + "'><p>" + feed.content + 
+    "</p><div class ='btn-group'>" + LikeBtn(feed) +
+    "</div></div>"
+    return formattedFeed
+}
+
+xhr.responseType = responseType
+xhr.open(method, url)
+xhr.onload = function() {
+    const serverResponse = xhr.response
+    const listedItems = serverResponse.response
+    var finalFeedStr = ""
+    var i
+    for (i=0; i<listedItems.length; i++) {
+        var feedObj = listedItems[i]
+        var currentItem = formatFeedElment(feedObj)
+        finalFeedStr += currentItem
+    }
+    feedsElement.innerHTML = finalFeedStr
+
+}
+xhr.send()
+
+</script>
 {% endblock content %}
