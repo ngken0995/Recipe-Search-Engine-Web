@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'frontend.apps.FrontendConfig'
+    'frontend.apps.FrontendConfig',
+    'spoonacular.apps.SpoonacularConfig',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
