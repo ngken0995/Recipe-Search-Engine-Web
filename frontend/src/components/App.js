@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import HomePage from "./HomePage";
+import About from "./About";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 export default class App extends Component {
   constructor(props) {
@@ -9,9 +16,16 @@ export default class App extends Component {
 
   render() {
     return (
-        <div>
-          <HomePage />
-        </div>
+      <Router>
+        <Switch>
+          <Route path="/food/:id">
+            <About />
+          </Route>
+          <Route path="/">
+            <HomePage />
+          </Route>
+        </Switch>
+      </Router>
       );
   }
 }
