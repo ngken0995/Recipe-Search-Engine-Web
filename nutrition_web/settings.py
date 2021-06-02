@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'frontend.apps.FrontendConfig',
-    'spoonacular.apps.SpoonacularConfig',
-    'rest_framework'
+    'rest_framework',
+    'account.apps.AccountConfig'
 ]
 
 MIDDLEWARE = [
