@@ -1,13 +1,14 @@
 
 
 from django.urls import path, include
-from .views import FavoriteViewSet, UserViewSet
+from .views import ArticleViewSet, UserViewSet, FavoriteViewSet
 from rest_framework.routers import DefaultRouter
 
 #article_list, article_details, ArticleList, ArticleDetails
 
 router = DefaultRouter()
 router.register('articles', ArticleViewSet, basename='articles')
+router.register('favorites', FavoriteViewSet, basename='articles')
 router.register('users', UserViewSet)
 
 

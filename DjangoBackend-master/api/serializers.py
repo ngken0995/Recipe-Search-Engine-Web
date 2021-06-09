@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Article
+from .models import Article, Favorite
 from django.contrib.auth.models import User
 from rest_framework.authtoken.views import Token
 
@@ -10,6 +10,10 @@ class ArticleSerializer(serializers.ModelSerializer):
         model = Article
         fields = ['id', 'title', 'description']
 
+class FavoriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Favorite
+        fields = ['id', 'food_id', 'token_id']
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

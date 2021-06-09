@@ -1,6 +1,6 @@
 
-from .models import Article
-from .serializers import ArticleSerializer, UserSerializer
+from .models import Article, Favorite
+from .serializers import ArticleSerializer, UserSerializer, FavoriteSerializer
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -11,6 +11,12 @@ from django.contrib.auth.models import User
 class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
+    permission_classes = [IsAuthenticated]
+    authentication_classes = (TokenAuthentication,)
+    
+class FavoriteViewSet(viewsets.ModelViewSet):
+    queryset = Favorite.objects.all()
+    serializer_class = FavoriteSerializer
     permission_classes = [IsAuthenticated]
     authentication_classes = (TokenAuthentication,)
 
