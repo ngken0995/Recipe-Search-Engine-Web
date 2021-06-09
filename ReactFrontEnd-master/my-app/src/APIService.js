@@ -112,4 +112,14 @@ export default class APIService {
     */
     }
 
+    static InsertFood(body, token) {
+
+      return axios.post('http://127.0.0.1:8000/api/favorites/', body, {
+        headers: {
+          'Content-Type':'application/json',
+          'Authorization':`Token ${token}` 
+        }
+      });
+    }
+
 }

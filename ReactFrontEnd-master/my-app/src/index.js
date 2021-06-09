@@ -10,6 +10,7 @@ import {CookiesProvider} from 'react-cookie';
 import HomePage from './components/HomePage';
 import About from './components/About';
 import Navbar from './components/Navbar';
+import Favorite from './components/Favorite';
 
 function Router() {
    
@@ -23,6 +24,7 @@ function Router() {
     <Route exact path = "/articles" component = {App}/>
     <Route exact path = "/" component = {HomePage}/>
     <Route exact path = "/food/:id" component = {About}/>
+    <Route exact path = "/favorite" component = {Favorite}/>
 
     </BrowserRouter>
     </CookiesProvider>

@@ -2,12 +2,15 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import axios from 'axios'
+import Favorite from './Favorite';
 
 export default function About() {
     const [steps, setSteps] = useState([])
     const [image, setImage] = useState('')
     const [title, setTitle] = useState('')
     const { id } = useParams();
+
+
     useEffect(() => {
         axios({
             method: 'GET',
@@ -35,10 +38,14 @@ export default function About() {
             console.log(error.response)
         });
     },[])
+
+
+    
     return (
         <>
             <img src={image}/>
             <h2>{title}</h2>
+            <Favorite id = {id}/>
             {steps.map(d => <ul>
                 <li>{d.step}</li></ul>)}       
         </>
