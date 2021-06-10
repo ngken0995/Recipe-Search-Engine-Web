@@ -74,7 +74,6 @@ function App() {
   const insertedInformation = (article) => {
     const new_articles = [...articles, article]
     setArticles(new_articles)
-
   }
 
   const deleteBtn = (article) => {

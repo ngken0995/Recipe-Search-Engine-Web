@@ -5,6 +5,7 @@ from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 
@@ -19,6 +20,8 @@ class FavoriteViewSet(viewsets.ModelViewSet):
     serializer_class = FavoriteSerializer
     permission_classes = [IsAuthenticated]
     authentication_classes = (TokenAuthentication,)
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['food_id', 'token_id']
 
 
 class UserViewSet(viewsets.ModelViewSet):

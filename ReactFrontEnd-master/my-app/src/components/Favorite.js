@@ -6,25 +6,24 @@ import axios from 'axios';
 function Favorite(props) {
 
     const [token] = useCookies(['mytoken'])
-    const [like, setLike] = useState(false)
     const food_id = props.id
     const token_id = token['mytoken']
-
-    const body = {food_id:`${props.id}`, token_id:`${token}` }
+    const [isLike, setIsLike] = useState(false)
 
     const likeFood = () => {
         APIService.InsertFood({food_id, token_id}, token['mytoken'])
     }
-   /*
-    const likeFood = () => {
-        axios.post('http://127.0.0.1:8000/api/favorites/', body, {
-          headers: {
-            'Content-Type':'application/json',
-            'Authorization':`Token ${token}` 
-          }
-        });
-   }
 
+    useEffect(() => {
+      APIService.isLike(food_id,token['mytoken'])
+      .then(resp => {
+        console.log(resp.data.length)
+        if (resp.data.length !== 0) {
+          setIsLike(true)
+        }
+      })
+    }, [isLike])
+   /*
     function likeFood() {
 
         return axios.post('http://127.0.0.1:8000/api/articles/', body, {
@@ -39,7 +38,10 @@ function Favorite(props) {
     return (
         <div>
             <div className = "col">
-              <button onClick = {likeFood} className = "btn btn-success">Like</button>
+            {
+                    isLike ? <button className = "btn btn-success">Remove From Favorite</button>
+                    :  <button onClick = {likeFood} className = "btn btn-primary">Add to Favorite</button>
+                }
             </div>
         </div>
     )
