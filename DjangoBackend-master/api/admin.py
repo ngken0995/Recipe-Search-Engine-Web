@@ -13,5 +13,5 @@ class ArticleModel(admin.ModelAdmin):
     
 @admin.register(Favorite)
 class FavoriteModel(admin.ModelAdmin):
-    list_filter = ('food_id', 'token_id')
-    list_display = ('food_id', 'token_id')
+    list_filter = ('food_id', 'user')
+    list_display = ('food_id', 'user')

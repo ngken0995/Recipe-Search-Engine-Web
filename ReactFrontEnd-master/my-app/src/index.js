@@ -11,6 +11,7 @@ import HomePage from './components/HomePage';
 import About from './components/About';
 import Navbar from './components/Navbar';
 import Favorite from './components/Favorite';
+import FavoritePage from './components/FavoritePage';
 
 function Router() {
    
@@ -25,6 +26,7 @@ function Router() {
     <Route exact path = "/" component = {HomePage}/>
     <Route exact path = "/food/:id" component = {About}/>
     <Route exact path = "/favorite" component = {Favorite}/>
+    <Route exact path = "/FavoritePage" component = {FavoritePage}/>
 
     </BrowserRouter>
     </CookiesProvider>

@@ -13,7 +13,7 @@ class Article(models.Model):
 
 class Favorite(models.Model):
     food_id = models.CharField(max_length=100)
-    token_id = models.CharField(max_length=100)
+    user = models.CharField(max_length=100)
 
     def __str__(self):
         return self.food_id

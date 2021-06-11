@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import {useCookies} from 'react-cookie';
+import {useHistory} from 'react-router-dom';
 
 
 export default function Navbar() {
     const [isLogin, setLogin] = useState(true)
     const [token, setToken, removeToken] = useCookies(['mytoken'])
+    let history = useHistory()
 
     useEffect(() => {
         if(token['mytoken']) {
@@ -17,6 +19,7 @@ export default function Navbar() {
 
     const logoutBtn = () => {
         removeToken(['mytoken'])
+        history.push('/')
     }
     
 
@@ -40,9 +43,16 @@ export default function Navbar() {
                         <li className='nav-item'>
                             <NavLink className='nav-link' to='/'>Home</NavLink>
                         </li>
-                        {isLogin ? <li>
+                        {isLogin ?
+                        <> 
+                            <li>
+                            <NavLink className='nav-link' to='/FavoritePage'>Favorite</NavLink>
+                            </li>
+                            <li>
                             <button onClick = {logoutBtn} className = "btn btn-primary">Logout</button>
-                            </li>:<li className='nav-item'>
+                            </li>
+                        </>    
+                            :<li className='nav-item'>
                             <NavLink className='nav-link' to='/login'>Login</NavLink>
                         </li>}
                     </ul>

@@ -122,14 +122,14 @@ export default class APIService {
       });
     }
 
-    static isLike(food_id, token) {
+    static isLike(food_id, user, token) {
 
       const headers = {
         'Content-Type':'application/json',
         'Authorization':`Token ${token}` 
       };
 
-      return axios.get(`http://127.0.0.1:8000/api/favorites/?token_id=${token}&food_id=${food_id}`, { headers })
+      return axios.get(`http://127.0.0.1:8000/api/favorites/?user=${user}&food_id=${food_id}`, { headers })
     
     }
 

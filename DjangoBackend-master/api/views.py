@@ -21,7 +21,7 @@ class FavoriteViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     authentication_classes = (TokenAuthentication,)
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['food_id', 'token_id']
+    filterset_fields = ['food_id', 'user']
 
 
 class UserViewSet(viewsets.ModelViewSet):

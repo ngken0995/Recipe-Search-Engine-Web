@@ -6,13 +6,14 @@ import axios from 'axios';
 function Favorite(props) {
 
     const [token] = useCookies(['mytoken'])
+    const [user_id] = useCookies(['myuser'])
     const food_id = props.id
-    const token_id = token['mytoken']
+    const user = user_id['myuser']
     const [isLike, setIsLike] = useState(false)
     const [id, setId] = useState(0)
 
     const likeFood = () => {
-        APIService.InsertFood({food_id, token_id}, token['mytoken'])
+        APIService.InsertFood({food_id, user}, token['mytoken'])
         .then(resp => {
           console.log(resp.data)
           setId(resp.data.id)
@@ -26,7 +27,7 @@ function Favorite(props) {
     }
 
     useEffect(() => {
-      APIService.isLike(food_id,token['mytoken'])
+      APIService.isLike(food_id, user_id['myuser'], token['mytoken'])
       .then(resp => {
         if (resp.data.length !== 0) {
           setIsLike(true)

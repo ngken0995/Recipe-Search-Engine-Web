@@ -13,7 +13,7 @@ class ArticleSerializer(serializers.ModelSerializer):
 class FavoriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Favorite
-        fields = ['id', 'food_id', 'token_id']
+        fields = ['id', 'food_id', 'user']
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

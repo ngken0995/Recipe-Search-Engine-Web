@@ -9,6 +9,7 @@ function Login() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [token, setToken] = useCookies(['mytoken'])
+    const [user, setUser] = useCookies(['myuser'])
     const [isLogin, setLogin] = useState(true)
     let history = useHistory()
 
@@ -21,7 +22,10 @@ function Login() {
 
     const loginBtn = () => {
         APIService.LoginUser({username, password})
-        .then(resp => setToken('mytoken',resp.data.token))
+        .then(resp => {
+            setToken('mytoken',resp.data.token)
+            setUser('myuser', username)
+            })
         .catch(error => console.log(error))
 
     }
