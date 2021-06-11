@@ -9,20 +9,31 @@ function Favorite(props) {
     const food_id = props.id
     const token_id = token['mytoken']
     const [isLike, setIsLike] = useState(false)
+    const [id, setId] = useState(0)
 
     const likeFood = () => {
         APIService.InsertFood({food_id, token_id}, token['mytoken'])
+        .then(resp => {
+          console.log(resp.data)
+          setId(resp.data.id)
+        })
+        setIsLike(true)
+    }
+
+    const removeFood = () => {
+      APIService.DeleteFavorite(id, token['mytoken'])
+      setIsLike(false)
     }
 
     useEffect(() => {
       APIService.isLike(food_id,token['mytoken'])
       .then(resp => {
-        console.log(resp.data.length)
         if (resp.data.length !== 0) {
           setIsLike(true)
+          setId(resp.data[0].id)
         }
       })
-    }, [isLike])
+    }, [])
    /*
     function likeFood() {
 
@@ -39,7 +50,7 @@ function Favorite(props) {
         <div>
             <div className = "col">
             {
-                    isLike ? <button className = "btn btn-success">Remove From Favorite</button>
+                    isLike === true ? <button onClick= {removeFood} className = "btn btn-success">Remove From Favorite</button>
                     :  <button onClick = {likeFood} className = "btn btn-primary">Add to Favorite</button>
                 }
             </div>

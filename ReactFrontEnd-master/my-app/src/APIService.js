@@ -130,6 +130,27 @@ export default class APIService {
       };
 
       return axios.get(`http://127.0.0.1:8000/api/favorites/?token_id=${token}&food_id=${food_id}`, { headers })
+    
+    }
+
+    static DeleteFavorite(id, token) {
+
+      const headers = {
+        'Content-Type':'application/json',
+        'Authorization':`token ${token}` 
+      };
+
+      return axios.delete(`http://127.0.0.1:8000/api/favorites/${id}/`, { headers })
+      /*
+      fetch(`http://127.0.0.1:8000/api/articles/${article_id}/`, {
+        'method':'DELETE',
+        headers: {
+            'Content-Type':'application/json',
+            'Authorization':`Token ${token}` 
+          }
+
+     })*/
+
     }
 
 }
