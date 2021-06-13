@@ -37,7 +37,7 @@ function Login() {
 
     }
     return (
-        <div className = "App">
+        <div className = "App text-center">
             <br/>
             <br/>
             {isLogin ? <h1>Please Login </h1> : <h1>Please Register </h1>}
@@ -46,7 +46,7 @@ function Login() {
             <br/>
             <br/>
 
-            <div className = "mb-3">
+            <div className = "mb-3 w-50 mx-auto">
             <label htmlFor = "username" className = "form-label">Username</label>
             <input type = "text" className = "form-control" id="username" placeholder = "Please Enter Username"
             value = {username} onChange = {e => setUsername(e.target.value)}
@@ -54,7 +54,7 @@ function Login() {
 
             </div>
 
-            <div className = "mb-3">
+            <div className = "mb-3 w-50 mx-auto">
             <label htmlFor = "password" className = "form-label">Password</label>
             <input type = "password" className = "form-control" id="password" placeholder = "Please Enter Password"
             value = {password} onChange = {e => setPassword(e.target.value)}

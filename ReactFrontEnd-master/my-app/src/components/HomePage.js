@@ -28,7 +28,7 @@ function HomePage() {
   return (
     <>
       <div className="container">
-          <div class="row">
+          <div className="row">
           {foods.map((food, index) => {
             if (foods.length === index + 1){
               return <div className="col-sm-4" key={food.id}><Link to={{pathname: `/food/${food.id}`}}>

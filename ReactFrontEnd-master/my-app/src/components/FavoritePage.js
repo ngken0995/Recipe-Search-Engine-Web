@@ -20,7 +20,6 @@ function FavoritePage() {
             res.data.map(food => 
                 (axios.get(`https://api.spoonacular.com/recipes/${food.food_id}/information?apiKey=51f720299e1c49f8bb7cb633e7302c5a`)
                 .then(resp =>{
-                    console.log(resp.data)
                     setFavorites(oldfavorites => [...oldfavorites, resp.data])
                 })
             ))
@@ -46,13 +45,15 @@ function FavoritePage() {
     },[])
 
     return (
-        <div>
+        <div className="container">
+            <div className="row">
         {favorites.map((food) => {
-        return <div key={food.id}><Link to={{pathname: `/food/${food.id}`}}>
+        return <div className="col-lg-6" key={food.id}><Link to={{pathname: `/food/${food.id}`}}>
           <img alt='food' key={food.id} id={food.id} src={food.image} />
           </Link></div>
         })
       }
+            </div>
         </div>
     )
 }

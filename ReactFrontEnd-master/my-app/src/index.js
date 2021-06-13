@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Route, BrowserRouter} from 'react-router-dom';
@@ -22,7 +21,6 @@ function Router() {
     <Navbar />
 
     <Route exact path = "/login" component = {Login}/>
-    <Route exact path = "/articles" component = {App}/>
     <Route exact path = "/" component = {HomePage}/>
     <Route exact path = "/food/:id" component = {About}/>
     <Route exact path = "/favorite" component = {Favorite}/>

@@ -16,7 +16,6 @@ export default function useFoodGenerate(addMore) {
                 return [...new Set([...prevFoods, ...res.data.map(f => ({"id":f.id, "image":f.image}))])]
             })
             setLoading(false)
-            console.log(res.data)
         }).catch(e =>{
             setError(true)
         })
