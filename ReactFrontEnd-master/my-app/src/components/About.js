@@ -43,11 +43,15 @@ export default function About() {
     
     return (
         <>
-            <img src={image}/>
+        <div className="text-center">
+            <img src={image} className="img-fluid"/>
             <h2>{title}</h2>
             <Favorite id = {id}/>
+            <div className="text-left">
             {steps.map(d => <ul>
-                <li>{d.step}</li></ul>)}       
+                <li>{d.step}</li></ul>)} 
+            </div>      
+        </div>
         </>
     )
 }

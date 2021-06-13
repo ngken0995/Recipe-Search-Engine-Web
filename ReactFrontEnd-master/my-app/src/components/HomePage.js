@@ -27,17 +27,21 @@ function HomePage() {
 
   return (
     <>
-      {foods.map((food, index) => {
-        if (foods.length === index + 1){
-          return <div key={food.id}><Link to={{pathname: `/food/${food.id}`}}>
-            <img alt='food' ref={lastFoodElementRef}  id={food.id} src={food.image} />
-            </Link></div>
-        }
-        return <div key={food.id}><Link to={{pathname: `/food/${food.id}`}}>
-          <img alt='food' key={food.id} id={food.id} src={food.image} />
-          </Link></div>
-        })
-      }
+      <div className="container">
+          <div class="row">
+          {foods.map((food, index) => {
+            if (foods.length === index + 1){
+              return <div className="col-sm-4" key={food.id}><Link to={{pathname: `/food/${food.id}`}}>
+                <img alt='food' ref={lastFoodElementRef}  id={food.id} src={food.image} />
+                </Link></div>
+            }
+            return <div className="col-sm-4" key={food.id}><Link to={{pathname: `/food/${food.id}`}}>
+              <img alt='food' key={food.id} id={food.id} src={food.image} />
+              </Link></div>
+            })
+          }
+          </div>
+      </div>
       <div>{loading && 'Loading...'}</div>
     </>
   )
