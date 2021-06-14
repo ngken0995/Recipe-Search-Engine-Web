@@ -18,7 +18,7 @@ function FavoritePage() {
         axios.get(`http://127.0.0.1:8000/api/favorites/?user=${user}`, { headers })
         .then(res=>{
             res.data.map(food => 
-                (axios.get(`https://api.spoonacular.com/recipes/${food.food_id}/information?apiKey=51f720299e1c49f8bb7cb633e7302c5a`)
+                (axios.get(`https://api.spoonacular.com/recipes/${food.food_id}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
                 .then(resp =>{
                     setFavorites(oldfavorites => [...oldfavorites, resp.data])
                 })

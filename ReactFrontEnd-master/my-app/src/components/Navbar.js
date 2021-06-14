@@ -26,7 +26,7 @@ export default function Navbar() {
     return (
         <nav className='navbar navbar-expand-lg navbar-light bg-light'>
             <div className='container-fluid'>
-                <Link className='navbar-brand' to='/'>Session Auth</Link>
+                <Link className='navbar-brand' to='/'>Nutrition</Link>
                 <button 
                     className='navbar-toggler' 
                     type='button' 
