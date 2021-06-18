@@ -9,13 +9,15 @@ const Posts = ({ posts, loading }) => {
   }
 
   return (
-    <ul className='list-group mb-4'>
+    <div className="container">
+    <div className="row">
       {posts.map(post => (
         <div className="col-sm-4" key={post.id}><Link to={{pathname: `/food/${post.id}`}}>
               <img alt='food' key={post.id} id={post.id} src={post.image} />
               </Link></div>
       ))}
-    </ul>
+      </div>
+      </div>
   );
 };
 
