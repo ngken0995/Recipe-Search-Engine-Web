@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-export default function useFoodGenerate(addMore) {
+export default function useFoodRandom(addMore) {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
     const [foods, setFoods] = useState([])

@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import axios from 'axios'
-import Favorite from './Favorite';
+import FavoriteButton from './FavoriteButton';
 import {useCookies} from 'react-cookie';
 
 export default function About() {
@@ -52,7 +52,7 @@ export default function About() {
         <div className="text-center">
             <img src={image} className="img-fluid"/>
             <h2>{title}</h2>
-            {isToken ? <Favorite id = {id}/>: <div></div>}
+            {isToken ? <FavoriteButton id = {id}/>: <div></div>}
             <div className="text-left w-50 mx-auto">
             <ol>
             {steps.map(d =>

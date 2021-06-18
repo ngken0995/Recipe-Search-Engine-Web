@@ -3,7 +3,7 @@ import APIService from '../APIService';
 import {useCookies} from 'react-cookie';
 import axios from 'axios';
 
-function Favorite(props) {
+function FavoriteButton(props) {
 
     const [token] = useCookies(['mytoken'])
     const [user_id] = useCookies(['myuser'])
@@ -15,7 +15,6 @@ function Favorite(props) {
     const likeFood = () => {
         APIService.InsertFood({food_id, user}, token['mytoken'])
         .then(resp => {
-          console.log(resp.data)
           setId(resp.data.id)
         })
         setIsLike(true)
@@ -59,4 +58,4 @@ function Favorite(props) {
     )
 }
 
-export default Favorite
+export default FavoriteButton

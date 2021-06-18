@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback } from "react";
-import useFoodGenerate from './useFoodGenerate'
+import useFoodRandom from './useFoodRandom'
 import {
   Link
 } from "react-router-dom";
@@ -10,7 +10,7 @@ function HomePage() {
     foods,
     loading,
     error
-  } = useFoodGenerate(addMore)
+  } = useFoodRandom(addMore)
 
   const observer = useRef()
   

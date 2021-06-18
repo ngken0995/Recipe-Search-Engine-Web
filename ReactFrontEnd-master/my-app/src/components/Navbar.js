@@ -43,6 +43,9 @@ export default function Navbar() {
                         <li className='nav-item'>
                             <NavLink className='nav-link' to='/'>Home</NavLink>
                         </li>
+                        <li className='nav-item'>
+                            <NavLink className='nav-link' to='/search'>Search</NavLink>
+                        </li>
                         {isLogin ?
                         <> 
                             <li>
