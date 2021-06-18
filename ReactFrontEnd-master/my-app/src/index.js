@@ -12,6 +12,7 @@ import Navbar from './components/Navbar';
 import Favorites from './components/Favorites';
 import Search from './components/Search';
 import Page from './components/Page';
+import FilterPage from './components/FilterPage';
 
 function Router() {
    
@@ -27,6 +28,7 @@ function Router() {
     <Route exact path = "/favorites" component = {Favorites}/>
     <Route exact path = "/search" component = {Search}/>
     <Route exact path = "/page/:query" component = {Page}/>
+    <Route exact path = "/FilterPage" component = {FilterPage}/>
 
     </BrowserRouter>
     </CookiesProvider>

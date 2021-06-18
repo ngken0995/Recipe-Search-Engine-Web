@@ -38,6 +38,7 @@ const Page = () => {
         postsPerPage={postsPerPage}
         totalPosts={posts.length}
         paginate={paginate}
+        query={query}
       />
     </div>
   );

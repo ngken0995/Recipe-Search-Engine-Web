@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Link
 } from "react-router-dom";
+import Search from './Search';
 
 const Posts = ({ posts, loading }) => {
   if (loading) {
@@ -9,6 +10,7 @@ const Posts = ({ posts, loading }) => {
   }
 
   return (
+    <>
     <div className="container">
     <div className="row">
       {posts.map(post => (
@@ -18,6 +20,7 @@ const Posts = ({ posts, loading }) => {
       ))}
       </div>
       </div>
+    </>
   );
 };
 

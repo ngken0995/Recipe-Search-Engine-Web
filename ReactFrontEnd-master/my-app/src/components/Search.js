@@ -12,6 +12,7 @@ function Search() {
     }
 
     return (
+      <>
         <div className="container">
             <div div className="row">
                 <div className = "col-sm-8">
@@ -24,6 +25,7 @@ function Search() {
                 </div>
             </div>
         </div>
+      </>
     )
 }
 

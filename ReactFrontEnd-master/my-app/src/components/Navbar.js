@@ -46,6 +46,9 @@ export default function Navbar() {
                         <li className='nav-item'>
                             <NavLink className='nav-link' to='/search'>Search</NavLink>
                         </li>
+                        <li className='nav-item'>
+                            <NavLink className='nav-link' to='/FilterPage'>Filter</NavLink>
+                        </li>
                         {isLogin ?
                         <> 
                             <li>
