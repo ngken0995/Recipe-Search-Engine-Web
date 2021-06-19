@@ -26,7 +26,7 @@ function Router() {
     <Route exact path = "/food/:id" component = {About}/>
     <Route exact path = "/favorites" component = {Favorites}/>
     <Route exact path = "/search" component = {Search}/>
-    <Route exact path = "/page/:query" component = {Page}/>
+    <Route exact path = "/page/:query/:pageNum" component = {Page}/>
 
     </BrowserRouter>
     </CookiesProvider>

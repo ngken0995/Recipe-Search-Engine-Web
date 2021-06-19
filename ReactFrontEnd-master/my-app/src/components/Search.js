@@ -8,7 +8,7 @@ function Search() {
     const [query, setQuery] = useState('')
 
     const SearchBtn = () => {
-        history.push(`/page/${query}`)
+        history.push(`/page/${query}/1`)
     }
 
     return (
