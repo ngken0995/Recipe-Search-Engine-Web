@@ -14,13 +14,13 @@ const Page = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
-      const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${query}&maxFat=25&number=36`);
+      const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${query}&maxFat=25&number=18`);
       setPosts(res.data.results);
       setLoading(false);
     };
 
     fetchPosts();
-  }, []);
+  }, [query]);
 
   // Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
