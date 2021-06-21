@@ -4,7 +4,7 @@ import Pagination from './Pagination';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-const Page = () => {
+const Page = (props) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -12,14 +12,14 @@ const Page = () => {
   const [currentPage, setCurrentPage] = useState(pageNum);
   const [postsPerPage] = useState(5);
 
-  const { query } = useParams();
+  const { query, minCarbs } = useParams();
   
 
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
 
-      const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${query}&maxFat=25&number=10`);
+      const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${query}&minCarbs=${minCarbs}&number=10`);
 
       setPosts(res.data.results);
       setLoading(false);
@@ -44,7 +44,7 @@ const Page = () => {
         postsPerPage={postsPerPage}
         totalPosts={posts.length}
         paginate={paginate}
-
+        minCarbs={minCarbs}
         query={query}
 
       />

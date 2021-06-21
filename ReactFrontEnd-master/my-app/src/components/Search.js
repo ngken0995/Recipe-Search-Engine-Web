@@ -6,18 +6,24 @@ import {useHistory} from 'react-router-dom';
 function Search() {
     let history = useHistory()
     const [query, setQuery] = useState('')
+    const [minCarbs, setMinCarbs] = useState('')
 
     const SearchBtn = () => {
-        history.push(`/page/${query}/1`)
+        history.push(`/page/${query}/${minCarbs}/1`)
     }
 
     return (
       <>
         <div className="container">
             <div div className="row">
-                <div className = "col-sm-8">
+                <div className = "col-sm-4">
                     <input type = "text" className = "form-control" id="query" placeholder = "Search"
                     value = {query} onChange = {e => setQuery(e.target.value)}
+                    />
+                </div>
+                <div className = "col-sm-4">
+                    <input type = "text" className = "form-control" id="minCarbs" placeholder = "minCarbs"
+                    value = {minCarbs} onChange = {e => setMinCarbs(e.target.value)}
                     />
                 </div>
                 <div className = "col-sm-4">
