@@ -7,6 +7,7 @@ function Search() {
     let history = useHistory()
     const [query, setQuery] = useState('')
     const [minCarbs, setMinCarbs] = useState('')
+    const [maxCarbs, setMaxCarbs] = useState('')
 
     const SearchBtn = () => {
         history.push(`/page/${query}/${minCarbs}/1`)
@@ -24,6 +25,11 @@ function Search() {
                 <div className = "col-sm-4">
                     <input type = "text" className = "form-control" id="minCarbs" placeholder = "minCarbs"
                     value = {minCarbs} onChange = {e => setMinCarbs(e.target.value)}
+                    />
+                </div>
+                <div className = "col-sm-4">
+                    <input type = "text" className = "form-control" id="maxCarbs" placeholder = "minCarbs"
+                    value = {maxCarbs} onChange = {e => setMaxCarbs(e.target.value)}
                     />
                 </div>
                 <div className = "col-sm-4">
