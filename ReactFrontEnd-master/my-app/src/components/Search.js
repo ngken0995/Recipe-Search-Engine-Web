@@ -10,7 +10,7 @@ function Search() {
     const [maxCarbs, setMaxCarbs] = useState('')
 
     const SearchBtn = () => {
-        history.push(`/page/${query}/${minCarbs}/1`)
+        history.push(`/page/${query}/${minCarbs}/${maxCarbs}/1`)
     }
 
     return (
