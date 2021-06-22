@@ -12,15 +12,24 @@ const Page = (props) => {
   const [currentPage, setCurrentPage] = useState(pageNum);
   const [postsPerPage] = useState(5);
 
-  const { query, minCarbs } = useParams();
+  const { query, minCarbs, maxCarbs, minCalories, maxCalories} = useParams();
   
 
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
 
-      const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${query}&minCarbs=${minCarbs}&number=10`);
-
+      const res = await axios.get('https://api.spoonacular.com/recipes/complexSearch', {
+        params: {
+          apiKey: process.env.REACT_APP_API_KEY,
+          query: query,
+          minCarbs :minCarbs,
+          maxCarbs:maxCarbs,
+          minCalories:minCalories,
+          maxCalories:maxCalories,
+          number:10
+        }
+      });
       setPosts(res.data.results);
       setLoading(false);
     };
@@ -33,7 +42,7 @@ const Page = (props) => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
-  // Change page
+  // Change
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
@@ -44,7 +53,6 @@ const Page = (props) => {
         postsPerPage={postsPerPage}
         totalPosts={posts.length}
         paginate={paginate}
-        minCarbs={minCarbs}
         query={query}
 
       />

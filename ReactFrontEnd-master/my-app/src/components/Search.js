@@ -6,38 +6,51 @@ import {useHistory} from 'react-router-dom';
 function Search() {
     let history = useHistory()
     const [query, setQuery] = useState('')
-    const [minCarbs, setMinCarbs] = useState('')
-    const [maxCarbs, setMaxCarbs] = useState('')
+    const [minCarbs, setMinCarbs] = useState(0)
+    const [maxCarbs, setMaxCarbs] = useState(1000)
+    const [minCalories, setMinCalories] = useState(0)
+    const [maxCalories, setMaxCalories] = useState(1000)
 
     const SearchBtn = () => {
-        history.push(`/page/${query}/${minCarbs}/${maxCarbs}/1`)
+        history.push(`/page/${query}/${minCarbs}/${maxCarbs}/${minCalories}/${maxCalories}/1`)
     }
 
     return (
-      <>
         <div className="container">
             <div div className="row">
-                <div className = "col-sm-4">
+                <div className = "col-sm-12">
                     <input type = "text" className = "form-control" id="query" placeholder = "Search"
                     value = {query} onChange = {e => setQuery(e.target.value)}
                     />
                 </div>
-                <div className = "col-sm-4">
-                    <input type = "text" className = "form-control" id="minCarbs" placeholder = "minCarbs"
+
+                <div className = "col-sm-6 mt-2">
+                    <input type = "number" className = "form-control" id="minCarbs" placeholder = "minCarbs" max={maxCarbs}
                     value = {minCarbs} onChange = {e => setMinCarbs(e.target.value)}
                     />
                 </div>
-                <div className = "col-sm-4">
-                    <input type = "text" className = "form-control" id="maxCarbs" placeholder = "minCarbs"
+                <div className = "col-sm-6 mt-2">
+                    <input type = "number" className = "form-control" id="maxCarbs" placeholder = "maxCarbs" min={minCarbs}
                     value = {maxCarbs} onChange = {e => setMaxCarbs(e.target.value)}
                     />
                 </div>
-                <div className = "col-sm-4">
+
+                <div className = "col-sm-6 mt-2">
+                    <input type = "number" className = "form-control" id="minCalories" placeholder = "minCalories" max={maxCarbs}
+                    value = {minCalories} onChange = {e => setMinCalories(e.target.value)}
+                    />
+                </div>
+                <div className = "col-sm-6 mt-2">
+                    <input type = "number" className = "form-control" id="maxCalories" placeholder = "maxCalories" min={minCarbs}
+                    value = {maxCalories} onChange = {e => setMaxCalories(e.target.value)}
+                    />
+                </div>
+
+                <div className = "col-sm-4 mt-2">
                 <button onClick = {SearchBtn} className = "btn btn-primary">Submit</button>
                 </div>
             </div>
         </div>
-      </>
     )
 }
 
