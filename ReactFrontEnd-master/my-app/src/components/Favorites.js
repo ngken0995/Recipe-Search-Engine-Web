@@ -49,7 +49,7 @@ function FavoritePage() {
             <div className="row">
         {favorites.map((food) => {
         return <div className="col-lg-6" key={food.id}><Link to={{pathname: `/food/${food.id}`}}>
-          <img alt='food' key={food.id} id={food.id} src={food.image} />
+          <img className="img-fluid" alt='food' key={food.id} id={food.id} src={food.image} />
           </Link></div>
         })
       }

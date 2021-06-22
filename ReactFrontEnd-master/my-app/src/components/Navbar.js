@@ -49,7 +49,7 @@ export default function Navbar() {
                         {isLogin ?
                         <> 
                             <li>
-                            <NavLink className='nav-link' to='/FavoritePage'>Favorite</NavLink>
+                            <NavLink className='nav-link' to='/favorites'>Favorite</NavLink>
                             </li>
                             <li>
                             <button onClick = {logoutBtn} className = "btn btn-primary">Logout</button>
