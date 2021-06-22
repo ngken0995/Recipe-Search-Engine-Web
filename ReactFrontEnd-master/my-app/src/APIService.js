@@ -27,7 +27,7 @@ export default class APIService {
 
     static RegisterUser(body) {
 
-      return axios.post('http://127.0.0.1:8000/auth/', body, {
+      return axios.post('http://127.0.0.1:8000/api/users/', body, {
         headers: {
           'Content-Type':'application/json',
         }

@@ -24,7 +24,6 @@ export default function About() {
         }).then(res => {
             const recipeSteps = res.data[0].steps;
             setSteps(recipeSteps);
-            console.log(recipeSteps)
         })
         .catch(error => {
             console.log(error.response)
@@ -38,7 +37,6 @@ export default function About() {
             const recipeTitle = res.data.title;
             setImage(recipeImage);
             setTitle(recipeTitle);
-            console.log(recipeImage)
         })
         .catch(error => {
             console.log(error.response)
