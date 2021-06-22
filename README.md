@@ -25,7 +25,9 @@ First complexity is understanding spoonacular api because it is important to lea
 - Homepage.js – display a three column list of random recipes from useFoodRandom.js
 - Login.js – user login or register to the web application.
 - Navbar.js – router to navigate to different location of the web application.
-- Page.js, Pagination.js, Posts.js – display the search result and use a pagination to select the next page.
+- Page.js - fetch data from spoonacular api with search.js parameters and use posts.js and pagination to display the information.
+- Pagination.js - display the pagination to Page.js
+- Posts.js – display post to Page.js.
 - Search.js – this is a search engine with a selected filter option to find recipe.
 - useFoodRandom.js – retrieve an array of random recipes and push it to Homepage.js
 
