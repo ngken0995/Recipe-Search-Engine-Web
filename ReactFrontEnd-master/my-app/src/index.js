@@ -25,7 +25,7 @@ function Router() {
     <Route exact path = "/favorites" component = {Favorites}/>
     <Route exact path = "/search" component = {Search}/>
 
-    <Route exact path = "/page/:query/:minCarbs/:maxCarbs/:minCalories/:maxCalories/:pageNum" component = {Page}/>
+    <Route exact path = "/page/:query/:minCarbs/:maxCarbs/:minCalories/:maxCalories/:minCholesterol/:maxCholesterol/:pageNum" component = {Page}/>
 
     </BrowserRouter>
     </CookiesProvider>

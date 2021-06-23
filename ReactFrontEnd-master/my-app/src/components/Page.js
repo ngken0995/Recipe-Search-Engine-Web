@@ -10,9 +10,9 @@ const Page = (props) => {
 
   const { pageNum } = useParams();
   const [currentPage, setCurrentPage] = useState(pageNum);
-  const [postsPerPage] = useState(5);
+  const [postsPerPage] = useState(9);
 
-  const { query, minCarbs, maxCarbs, minCalories, maxCalories} = useParams();
+  const { query, minCarbs, maxCarbs, minCalories, maxCalories, minCholesterol, maxCholesterol} = useParams();
   
 
   useEffect(() => {
@@ -27,7 +27,9 @@ const Page = (props) => {
           maxCarbs:maxCarbs,
           minCalories:minCalories,
           maxCalories:maxCalories,
-          number:10
+          minCholesterol: minCholesterol,
+          maxCholesterol: maxCholesterol,
+          number:27
         }
       });
       setPosts(res.data.results);

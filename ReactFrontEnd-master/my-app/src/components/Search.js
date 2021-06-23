@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react'
+import React, { useState } from 'react'
 import {useHistory} from 'react-router-dom';
 
 
@@ -10,39 +10,59 @@ function Search() {
     const [maxCarbs, setMaxCarbs] = useState(1000)
     const [minCalories, setMinCalories] = useState(0)
     const [maxCalories, setMaxCalories] = useState(1000)
+    const [minCholesterol, setMinCholesterol] = useState(0)
+    const [maxCholesterol, setMaxCholesterol] = useState(1000)
 
     const SearchBtn = () => {
-        history.push(`/page/${query}/${minCarbs}/${maxCarbs}/${minCalories}/${maxCalories}/1`)
+        history.push(`/page/${query}/${minCarbs}/${maxCarbs}/${minCalories}/${maxCalories}/${minCholesterol}/${minCholesterol}/1`)
     }
 
     return (
         <div className="container">
             <div div className="row">
-                <div className = "col-sm-12">
+                <div className = "col-sm-12 mt-4">
                     <input type = "text" className = "form-control" id="query" placeholder = "Search"
                     value = {query} onChange = {e => setQuery(e.target.value)}
                     />
                 </div>
 
                 <div className = "col-sm-6 mt-2">
+                  <label >Min Carbs</label>
                     <input type = "number" className = "form-control" id="minCarbs" placeholder = "minCarbs" max={maxCarbs}
                     value = {minCarbs} onChange = {e => setMinCarbs(e.target.value)}
                     />
                 </div>
                 <div className = "col-sm-6 mt-2">
+                    <label >Max Carbs</label>
                     <input type = "number" className = "form-control" id="maxCarbs" placeholder = "maxCarbs" min={minCarbs}
                     value = {maxCarbs} onChange = {e => setMaxCarbs(e.target.value)}
                     />
                 </div>
 
                 <div className = "col-sm-6 mt-2">
-                    <input type = "number" className = "form-control" id="minCalories" placeholder = "minCalories" max={maxCarbs}
+                    <label >Min Calories</label>
+                    <input type = "number" className = "form-control" id="minCalories" placeholder = "minCalories" max={maxCalories}
                     value = {minCalories} onChange = {e => setMinCalories(e.target.value)}
                     />
                 </div>
                 <div className = "col-sm-6 mt-2">
-                    <input type = "number" className = "form-control" id="maxCalories" placeholder = "maxCalories" min={minCarbs}
+                    <label>Max Calories</label>
+                    <input type = "number" className = "form-control" id="maxCalories" placeholder = "maxCalories" min={minCalories}
                     value = {maxCalories} onChange = {e => setMaxCalories(e.target.value)}
+                    />
+                </div>
+
+                <div className = "col-sm-6 mt-2">
+                    <label >Min Cholesterol</label>
+                    <input type = "number" className = "form-control" id="minCholesterol" placeholder = "minCholesterol" min={maxCholesterol}
+                    value = {minCholesterol} onChange = {e => setMinCholesterol(e.target.value)}
+                    />
+                </div>
+
+                <div className = "col-sm-6 mt-2">
+                    <label >Max Cholesterol</label>
+                    <input type = "number" className = "form-control" id="maxCholesterol" placeholder = "maxCholesterol" min={minCholesterol}
+                    value = {maxCholesterol} onChange = {e => setMaxCholesterol(e.target.value)}
                     />
                 </div>
 

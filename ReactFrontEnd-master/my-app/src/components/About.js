@@ -15,9 +15,34 @@ export default function About() {
     let isToken = false;
     if(typeof token['mytoken'] !== 'undefined') {
         isToken = true
-    } 
+    }
+    
+    const one = `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${process.env.REACT_APP_API_KEY}`;
+    const two = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.REACT_APP_API_KEY}`;
 
+    const requestOne = axios.get(one);
+    const requestTwo = axios.get(two);
+    
     useEffect(() => {
+        axios.all([requestOne, requestTwo])
+        .then(
+            axios.spread((...res) => {
+                const responseOne = res[0].data[0].steps;
+                setSteps(responseOne);
+
+                const recipeImage = res[1].data.image;
+                const recipeTitle = res[1].data.title;
+                setImage(recipeImage);
+                setTitle(recipeTitle);
+
+            })
+        )
+        .catch(errors => {
+            // react on errors.
+            console.error(errors);
+        });
+    })
+        /*
         axios({
             method: 'GET',
             url: `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${process.env.REACT_APP_API_KEY}`,    
@@ -42,9 +67,8 @@ export default function About() {
             console.log(error.response)
         });
     },[])
+    */
 
-
-    
     return (
         <>
         <div className="text-center">
