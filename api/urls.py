@@ -1,6 +1,6 @@
 
 
-from django.urls import path, include
+from django.urls import path, include, re_path
 from .views import UserViewSet, FavoriteViewSet
 from rest_framework.routers import DefaultRouter
 
@@ -14,5 +14,4 @@ router.register('users', UserViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls))
-
 ]
