@@ -31,11 +31,11 @@ function HomePage() {
           <div className="row">
           {foods.map((food, index) => {
             if (foods.length === index + 1){
-              return <div className="col-sm-4" key={food.id}><Link to={{pathname: `/food/${food.id}`}}>
+              return <div className="col-lg-4 col-md-6" key={food.id}><Link to={{pathname: `/food/${food.id}`}}>
                 <img alt='food' ref={lastFoodElementRef}  id={food.id} src={food.image} />
                 </Link></div>
             }
-            return <div className="col-sm-4" key={food.id}><Link to={{pathname: `/food/${food.id}`}}>
+            return <div className="col-lg-4 col-md-6" key={food.id}><Link to={{pathname: `/food/${food.id}`}}>
               <img alt='food' key={food.id} id={food.id} src={food.image} />
               </Link></div>
             })
