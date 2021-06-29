@@ -18,10 +18,10 @@ function Search() {
     }
 
     return (
-        <div className="container">
-            <div div className="row">
-                <div className = "col-sm-12 mt-4">
-                    <input type = "text" className = "form-control" id="query" placeholder = "Search"
+        <div>
+              <form onSubmit = {SearchBtn}>
+                <div className = "col-sm-6 mt-4">
+                    <input type = "text" required className = "form-control" id="query" placeholder = "Search"
                     value = {query} onChange = {e => setQuery(e.target.value)}
                     />
                 </div>
@@ -54,7 +54,7 @@ function Search() {
 
                 <div className = "col-sm-6 mt-2">
                     <label >Min Cholesterol</label>
-                    <input type = "number" className = "form-control" id="minCholesterol" placeholder = "minCholesterol" min={maxCholesterol}
+                    <input type = "number" className = "form-control" id="minCholesterol" placeholder = "minCholesterol" max={maxCholesterol}
                     value = {minCholesterol} onChange = {e => setMinCholesterol(e.target.value)}
                     />
                 </div>
@@ -67,10 +67,10 @@ function Search() {
                 </div>
 
                 <div className = "col-sm-4 mt-2">
-                <button onClick = {SearchBtn} className = "btn btn-primary">Submit</button>
+                <button className = "btn btn-primary">Submit</button>
                 </div>
+                </form>
             </div>
-        </div>
     )
 }
 
