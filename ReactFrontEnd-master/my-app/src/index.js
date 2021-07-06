@@ -6,7 +6,7 @@ import Login from './components/Login'
 import {CookiesProvider} from 'react-cookie';
 import HomePage from './components/HomePage';
 import About from './components/About';
-import Navbar from './components/Navbar';
+import Navvbar from './components/Navbar';
 import Favorites from './components/Favorites';
 import Search from './components/Search';
 import Page from './components/Page';
@@ -17,7 +17,7 @@ function Router() {
     <CookiesProvider>
     <BrowserRouter>
 
-    <Navbar />
+    <Navvbar />
 
     <Route exact path = "/login" component = {Login}/>
     <Route exact path = "/" component = {HomePage}/>
