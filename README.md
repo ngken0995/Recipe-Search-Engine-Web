@@ -1,7 +1,7 @@
 # nutrition_web
 
 ### Distinctiveness
-This project is a recipe finder web application which provides users to look up for recipes and use other functions. The recipes are retrieved from spoonacular database by using their api. The frontend uses React for users to interact with throughout the web application. Finally, installing other package to run the web application.
+This project is a recipe finder web application which provides users to look up for recipes and use other functions. The recipes are retrieved from spoonacular database by using their api. The frontend uses React for users to interact with throughout the web application. The backend uses Django to store data. Finally, installing other package to run the web application.
 
 ### Complexity
 First complexity is understanding spoonacular api because it is important to learn about spoonacular data standard to retrieve the correct information and display it in my web application. Second complexity is learning about React which I had to learn about the lifecycle, asynchronous hooks and etc. Third complexity is connecting the frontend with the backend to retrieve users information. Final complexity is creating a pagination page and infinite scrolling page.
